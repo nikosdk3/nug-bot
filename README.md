@@ -1,0 +1,2 @@
+# Nug Bot
+Discord Bot

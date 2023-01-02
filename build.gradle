@@ -1,0 +1,26 @@
+plugins {
+    id'java'
+    id'application'
+    id'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+mainClassName = 'org.nugdev.nugbot.NugBot'
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.konghq:unirest-java:3.11.09'
+    implementation 'net.dv8tion:JDA:5.0.0-beta.2'
+    implementation 'ch.qos.logback:logback-classic:1.4.5'
+    implementation 'io.github.cdimascio:dotenv-java:2.3.1'
+}
+
+tasks.compileJava.options.encoding='UTF-8'
+
+shadowJar.classifier=""
+
+jar.manifest.attributes.put("Main-Class", mainClassName)
