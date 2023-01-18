@@ -24,3 +24,11 @@ tasks.compileJava.options.encoding='UTF-8'
 shadowJar.classifier=""
 
 jar.manifest.attributes.put("Main-Class", mainClassName)
+
+task stage(type: Copy) {
+    description = 'Copies the shadowJar to the staging directory'
+    from 'build/libs'
+    into 'staging'
+    include 'nug-bot.jar'
+    dependsOn shadowJar
+}
