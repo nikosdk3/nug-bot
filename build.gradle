@@ -6,7 +6,7 @@ plugins {
 
 mainClassName = 'org.nugdev.nugbot.NugBot'
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
