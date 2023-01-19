@@ -19,6 +19,10 @@ dependencies {
     implementation "io.github.cdimascio:dotenv-java:2.2.4"
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
 shadowJar {
     classifier = ""
 }
@@ -27,10 +31,4 @@ jar {
     manifest.attributes.put("Main-Class", mainClassName)
 }
 
-task stage(type: Copy) {
-    description = 'Copies the shadowJar to the staging directory'
-    from 'build/libs'
-    into 'staging'
-    include 'nug-bot.jar'
-    dependsOn shadowJar
-}
+task stage(dependsOn: ['build', 'clean'])
